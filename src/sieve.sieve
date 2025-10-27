@@ -137,7 +137,7 @@ if address :domain :matches "from" ["proxmox.com", "*.proxmox.com"]
     fileinto "Proxmox";
 }
 
-if address :domain :matches "from" ["findy-code.io", "*.findy-code.io"]
+if address :domain :matches "from" ["findy-code.io", "*.findy-code.io", "findy.co.jp", "*.findy.co.jp"]
 {
     fileinto "Findy";
 }
@@ -162,7 +162,7 @@ if anyof (address :domain :matches "from" ["docker.com", "*.docker.com"], addres
     fileinto "Docker";
 }
 
-if anyof (address :is "from" "support@protonmail.zendesk.com")
+if anyof (address :is "from" "support@protonmail.zendesk.com", address :domain :matches "from" ["*.proton.me"])
 {
     fileinto "Proton";
 }
@@ -218,7 +218,7 @@ if address :is "from" "notify@aur.archlinux.org"
 
 
 # Other
-if header :contains "subject" ["Purchase", "Payment", "Order", "Pembayaran", "Checkout", "E-Receipt", "Invoice", "Billing", "Tagihan"]
+if header :contains "subject" ["Purchase", "Payment", "Order", "Pembayaran", "Checkout", "E-Receipt", "Invoice", "Billing", "Tagihan", "Subscription"]
 {
     fileinto "Payment";
 }
