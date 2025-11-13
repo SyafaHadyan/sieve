@@ -67,11 +67,6 @@ if address :domain :matches "from" ["tokopedia.com", "*.tokopedia.com"]
     fileinto "Tokopedia";
 }
 
-if address :domain :matches "from" ["amazonaws.com", "*.amazonaws.com"]
-{
-    fileinto "AWS";
-}
-
 if address :domain :matches "from" ["jenius.com", "*.jenius.com"]
 {
     fileinto "Jenius";
@@ -152,7 +147,62 @@ if address :domain :matches "from" ["udemymail.com", "*.udemymail.com", "udemy.c
     fileinto "Udemy";
 }
 
-if anyof (address :domain :matches "from" "google.com", address :domain :matches "from" "*.google.com", address :is "from" "noreply@youtube.com", address :is "from" "forms-receipts-noreply@google.com")
+if address :domain :matches "from" ["riotgames.com", "*.riotgames.com"]
+{
+    fileinto "Riot";
+}
+
+if address :domain :matches "from" ["clickup.com", "*.clickup.com"]
+{
+    fileinto "ClickUp";
+}
+
+if address :domain :matches "from" ["digitalocean.com", "*.digitalocean.com"]
+{
+    fileinto "DigitalOcean";
+}
+
+if address :domain :matches "from" ["backblaze.com", "*.backblaze.com"]
+{
+    fileinto "Backblaze";
+}
+
+if address :domain :matches "from" ["clipstudio.net", "*.clipstudio.net"]
+{
+    fileinto "Clip Studio Paint";
+}
+
+if address :domain :matches "from" ["openai.com", "*.openai.com"]
+{
+    fileinto "OpenAI";
+}
+
+if address :domain :matches "from" ["lfx.linuxfoundation.org", "*.lfx.linuxfoundation.org"]
+{
+    fileinto "Linux Foundation";
+}
+
+if address :domain :matches "from" ["zoom.us", "*.zoom.us"]
+{
+    fileinto "Zoom";
+}
+
+if address :domain :matches "from" ["cncf.io", "*.cncf.io"]
+{
+    fileinto "Cloud Native Computing Foundation";
+}
+
+if anyof (address :domain :matches "from" ["amazonaws.com", "*.amazonaws.com"], address :domain :matches "from" ["signin.aws", "*signin.aws"], address :is "from" "aws-marketing-email-replies@amazon.com", address :is "from" "account-update-no-reply@signin.aws")
+{
+    fileinto "Amazon Web Services";
+}
+
+if address :is "from" "jobalerts-noreply@linkedin.com"
+{
+    fileinto "LinkedIn Job Alerts";
+}
+
+if anyof (address :domain :matches "from" ["google.com", "*.google.com"], address :is "from" "noreply@youtube.com", address :is "from" "forms-receipts-noreply@google.com")
 {
     fileinto "Google";
 }
