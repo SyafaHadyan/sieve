@@ -192,6 +192,16 @@ if address :domain :matches "from" ["cncf.io", "*.cncf.io"]
     fileinto "Cloud Native Computing Foundation";
 }
 
+if address :domain :matches "from" ["namecheap.com", "*.namecheap.com"]
+{
+    fileinto "Namecheap";
+}
+
+if address :domain :matches "from" ["codeberg.org", "*.codeberg.org"]
+{
+    fileinto "Codeberg";
+}
+
 if anyof (address :domain :matches "from" ["amazonaws.com", "*.amazonaws.com"], address :domain :matches "from" ["signin.aws", "*signin.aws"], address :is "from" "aws-marketing-email-replies@amazon.com", address :is "from" "account-update-no-reply@signin.aws")
 {
     fileinto "Amazon Web Services";
@@ -215,6 +225,11 @@ if anyof (address :domain :matches "from" ["docker.com", "*.docker.com"], addres
 if anyof (address :is "from" "support@protonmail.zendesk.com", address :domain :matches "from" ["*.proton.me"])
 {
     fileinto "Proton";
+}
+
+if anyof (address :is "from" "no-reply@estella.id", header :contains "Uptime Kuma")
+{
+    fileinto "Uptime Kuma";
 }
 
 
