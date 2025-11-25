@@ -227,7 +227,7 @@ if anyof (address :is "from" "support@protonmail.zendesk.com", address :domain :
     fileinto "Proton";
 }
 
-if anyof (address :is "from" "no-reply@estella.id", header :contains "Uptime Kuma")
+if anyof (address :is "from" "no-reply@estella.id", header :contains "subject" "Uptime Kuma")
 {
     fileinto "Uptime Kuma";
 }
