@@ -167,9 +167,9 @@ if address :domain :matches "from" ["backblaze.com", "*.backblaze.com"]
     fileinto "Backblaze";
 }
 
-if address :domain :matches "from" ["clipstudio.net", "*.clipstudio.net"]
+if address :domain :matches "from" ["clipstudio.net", "*.clipstudio.net", "clip-studio.com", "*.clip-studio.com"]
 {
-    fileinto "Clip Studio Paint";
+    fileinto "Clip Studio";
 }
 
 if address :domain :matches "from" ["openai.com", "*.openai.com"]
@@ -177,7 +177,7 @@ if address :domain :matches "from" ["openai.com", "*.openai.com"]
     fileinto "OpenAI";
 }
 
-if address :domain :matches "from" ["lfx.linuxfoundation.org", "*.lfx.linuxfoundation.org"]
+if address :domain :matches "from" ["lfx.linuxfoundation.org", "*.lfx.linuxfoundation.org", "linuxfoundation.org", "*.linuxfoundation.org"]
 {
     fileinto "Linux Foundation";
 }
@@ -200,6 +200,106 @@ if address :domain :matches "from" ["namecheap.com", "*.namecheap.com"]
 if address :domain :matches "from" ["codeberg.org", "*.codeberg.org"]
 {
     fileinto "Codeberg";
+}
+
+if address :domain :matches "from" ["ionos.com", "*.ionos.com"]
+{
+    fileinto "IONOS";
+}
+
+if address :domain :matches "from" ["domainesia.com", "*.domainesia.com"]
+{
+    fileinto "DomaiNesia";
+}
+
+if address :domain :matches "from" ["netcup.de", "*.netcup.de"]
+{
+    fileinto "netcup";
+}
+
+if address :domain :matches "from" ["hypixel.net", "*.hypixel.net"]
+{
+    fileinto "Hypixel";
+}
+
+if address :domain :matches "from" ["epicgames.com", "*.epicgames.com"]
+{
+    fileinto "Epic Games";
+}
+
+if address :domain :matches "from" ["bri.co.id", "*.bri.co.id"]
+{
+    fileinto "BRI";
+}
+
+if address :domain :matches "from" ["bitwarden.com", "*.bitwarden.com"]
+{
+    fileinto "Bitwarden";
+}
+
+if address :domain :matches "from" ["tradingview.com", "*.tradingview.com"]
+{
+    fileinto "TradingView";
+}
+
+if address :domain :matches "from" ["strava.com", "*.strava.com"]
+{
+    fileinto "Strava";
+}
+
+if address :domain :matches "from" ["nexon.com", "*.nexon.com"]
+{
+    fileinto "Nexon";
+}
+
+if address :domain :matches "from" ["indeed.com", "*.indeed.com"]
+{
+    fileinto "Indeed";
+}
+
+if address :domain :matches "from" ["myanimelist.net", "*.myanimelist.net"]
+{
+    fileinto "MyAnimeList";
+}
+
+if address :domain :matches "from" ["cisco.com", "*.cisco.com"]
+{
+    fileinto "Cisco";
+}
+
+if address :domain :matches "from" ["bankbsi.co.id", "*.bankbsi.co.id"]
+{
+    fileinto "Bank Syariah Indonesia";
+}
+
+if address :domain :matches "from" ["uniqlo.com", "*.uniqlo.com", "uniqlo.co.id", "*.uniqlo.co.id"]
+{
+    fileinto "UNIQLO";
+}
+
+if address :domain :matches "from" ["se.com", "*.se.com"]
+{
+    fileinto "Schneider Electric";
+}
+
+if address :domain :matches "from" ["atlassian.com", "*.atlassian.com", "atlassian.net", "*.atlassian.net"]
+{
+    fileinto "Atlassian";
+}
+
+if address :domain :matches "from" ["virustotal.com", "*.virustotal.com"]
+{
+    fileinto "VirusTotal";
+}
+
+if address :domain :matches "from" ["ajaib.co.id", "*.ajaib.co.id"]
+{
+    fileinto "Ajaib";
+}
+
+if address :domain :matches "from" ["permatabank.co.id", "*.permatabank.co.id"]
+{
+    fileinto "Permata Bank";
 }
 
 if anyof (address :domain :matches "from" ["amazonaws.com", "*.amazonaws.com"], address :domain :matches "from" ["signin.aws", "*signin.aws"], address :is "from" "aws-marketing-email-replies@amazon.com", address :is "from" "account-update-no-reply@signin.aws")
@@ -227,7 +327,7 @@ if anyof (address :is "from" "support@protonmail.zendesk.com", address :domain :
     fileinto "Proton";
 }
 
-if anyof (address :is "from" "no-reply@estella.id", header :contains "subject" "Uptime Kuma")
+if allof (address :is "from" "no-reply@estella.id", header :contains "from" "Uptime Kuma")
 {
     fileinto "Uptime Kuma";
 }
@@ -278,12 +378,12 @@ if address :is "to" "arch-security@lists.archlinux.org"
 
 if address :is "from" "notify@aur.archlinux.org"
 {
-    fileinto "AUR";
+    fileinto "Arch User Repository";
 }
 
 
 # Other
-if header :contains "subject" ["Purchase", "Payment", "Order", "Pembayaran", "Checkout", "E-Receipt", "Invoice", "Billing", "Tagihan", "Subscription"]
+if header :contains "subject" ["Purchase", "Payment", "Order", "Pembayaran", "Checkout", "Receipt", "E-Receipt", "Invoice", "Billing", "Tagihan", "Subscription"]
 {
     fileinto "Payment";
 }
