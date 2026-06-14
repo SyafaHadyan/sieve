@@ -1,7 +1,7 @@
 require ["include", "environment", "variables", "relational", "comparator-i;ascii-numeric", "spamtest", "fileinto", "imap4flags"];
 
 
-# Address
+# General Address
 if address :domain :matches "from" ["github.com", "*.github.com"]
 {
     fileinto "GitHub";
@@ -302,7 +302,84 @@ if address :domain :matches "from" ["permatabank.co.id", "*.permatabank.co.id"]
     fileinto "Permata Bank";
 }
 
-if anyof (address :domain :matches "from" ["amazonaws.com", "*.amazonaws.com"], address :domain :matches "from" ["signin.aws", "*signin.aws"], address :is "from" "aws-marketing-email-replies@amazon.com", address :is "from" "account-update-no-reply@signin.aws")
+if address :domain :matches "from" ["supabase.com", "*.supabase.com"]
+{
+    fileinto "Supabase";
+}
+
+if address :domain :matches "from" ["anthropic.com", "*.anthropic.com"]
+{
+    fileinto "Anthropic";
+}
+
+if address :domain :matches "from" ["roblox.com", "*.roblox.com"]
+{
+    fileinto "Roblox";
+}
+
+if address :domain :matches "from" ["pluang.com", "*.pluang.com"]
+{
+    fileinto "Pluang";
+}
+
+if address :domain :matches "from" ["stockbit.com", "*.stockbit.com"]
+{
+    fileinto "Stockbit";
+}
+
+if address :domain :matches "from" ["interactivebrokers.com", "*.interactivebrokers.com"]
+{
+    fileinto "Interactive Brokers";
+}
+
+if address :domain :matches "from" ["wise.com", "*.wise.com"]
+{
+    fileinto "Wise";
+}
+
+if address :domain :matches "from" ["ocbc.id", "*.ocbc.id"]
+{
+    fileinto "OCBC";
+}
+
+if address :domain :matches "from" ["huggingface.co", "*.huggingface.co"]
+{
+    fileinto "Hugging Face";
+}
+
+if address :domain :matches "from" ["polymarket.com", "*.polymarket.com"]
+{
+    fileinto "Polymarket";
+}
+
+if address :domain :matches "from" ["coinbase.com", "*.coinbase.com"]
+{
+    fileinto "Coinbase";
+}
+
+if address :domain :matches "from" ["tokocrypto.com", "*.tokocrypto.com"]
+{
+    fileinto "Tokocrypto";
+}
+
+if address :domain :matches "from" ["binance.com", "*.binance.com"]
+{
+    fileinto "Binance";
+}
+
+if address :domain :matches "from" ["bitrefill.com", "*.bitrefill.com"]
+{
+    fileinto "Bitrefill";
+}
+
+if address :domain :matches "from" ["activision.com", "*.Activision"]
+{
+    fileinto "Activision";
+}
+
+
+## Special Cases
+if anyof (address :domain :matches "from" ["amazonaws.com", "*.amazonaws.com", "aws.com", "*.aws.com", "signin.aws", "*signin.aws"], address :is "from" "aws-marketing-email-replies@amazon.com", address :is "from" "account-update-no-reply@signin.aws", address :is "from" "no-reply-aws@amazon.com")
 {
     fileinto "Amazon Web Services";
 }
