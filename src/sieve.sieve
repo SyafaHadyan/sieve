@@ -372,9 +372,39 @@ if address :domain :matches "from" ["bitrefill.com", "*.bitrefill.com"]
     fileinto "Bitrefill";
 }
 
-if address :domain :matches "from" ["activision.com", "*.Activision"]
+if address :domain :matches "from" ["activision.com", "*.activision.com"]
 {
     fileinto "Activision";
+}
+
+if address :domain :matches "from" ["shopee.co.id", "*.shopee.co.id"]
+{
+    fileinto "Shopee";
+}
+
+if address :domain :matches "from" ["incident.io", "*.incident.io"]
+{
+    fileinto "incident.io";
+}
+
+if address :domain :matches "from" ["zerohash.com", "*.zerohash.com"]
+{
+    fileinto "zerohash";
+}
+
+if address :domain :matches "from" ["githubstatus.com", "*.githubstatus.com"]
+{
+    fileinto "GitHub Status";
+}
+
+if address :domain :matches "from" ["snyk.io", "*.snyk.io"]
+{
+    fileinto "synk";
+}
+
+if address :domain :matches "from" ["apnic.net", "*.apnic.net"]
+{
+    fileinto "APNIC";
 }
 
 
@@ -407,6 +437,21 @@ if anyof (address :is "from" "support@protonmail.zendesk.com", address :domain :
 if allof (address :is "from" "no-reply@estella.id", header :contains "from" "Uptime Kuma")
 {
     fileinto "Uptime Kuma";
+}
+
+if allof (address :is "from" "no-reply@status.incident.io", header :contains "from" "Tailscale")
+{
+    fileinto "Tailscale";
+}
+
+if address :is "from" "polymarket@instatus.com"
+{
+    fileinto "Polymarket";
+}
+
+if address :is "from" ["InteractiveBrokers@proxydocs.com", "InteractiveBrokers@prospectusdocs.com"]
+{
+    fileinto "Interactive Brokers";
 }
 
 
@@ -456,6 +501,11 @@ if address :is "to" "arch-security@lists.archlinux.org"
 if address :is "from" "notify@aur.archlinux.org"
 {
     fileinto "Arch User Repository";
+}
+
+if address :is "to" "aur-general@lists.archlinux.org"
+{
+    fileinto "Arch User Repository General";
 }
 
 
