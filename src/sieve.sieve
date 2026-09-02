@@ -407,6 +407,21 @@ if address :domain :matches "from" ["apnic.net", "*.apnic.net"]
     fileinto "APNIC";
 }
 
+if address :domain :matches "from" ["pikapods.com", "*.pikapods.com"]
+{
+    fileinto "PikaPods";
+}
+
+if address :domain :matches "from" ["planetminecraft.com", "*.planetminecraft.com"]
+{
+    fileinto "Planet Minecraft";
+}
+
+if address :domain :matches "from" ["tailscale.com", "*.tailscale.com"]
+{
+    fileinto "Tailscale";
+}
+
 
 ## Special Cases
 if anyof (address :domain :matches "from" ["amazonaws.com", "*.amazonaws.com", "aws.com", "*.aws.com", "signin.aws", "*signin.aws"], address :is "from" "aws-marketing-email-replies@amazon.com", address :is "from" "account-update-no-reply@signin.aws", address :is "from" "no-reply-aws@amazon.com")
