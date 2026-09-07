@@ -422,6 +422,21 @@ if address :domain :matches "from" ["tailscale.com", "*.tailscale.com"]
     fileinto "Tailscale";
 }
 
+if address :domain :matches "from" ["deepseek.com", "*.deepseek.com"]
+{
+    fileinto "DeepSeek";
+}
+
+if address :domain :matches "from" ["mailtrap.io", "*.mailtrap.io"]
+{
+    fileinto "Mailtrap";
+}
+
+if address :domain :matches "from" ["gog.com", "*.gog.com"]
+{
+    fileinto "GOG";
+}
+
 
 ## Special Cases
 if anyof (address :domain :matches "from" ["amazonaws.com", "*.amazonaws.com", "aws.com", "*.aws.com", "signin.aws", "*signin.aws"], address :is "from" "aws-marketing-email-replies@amazon.com", address :is "from" "account-update-no-reply@signin.aws", address :is "from" "no-reply-aws@amazon.com")
@@ -467,6 +482,11 @@ if address :is "from" "polymarket@instatus.com"
 if address :is "from" ["InteractiveBrokers@proxydocs.com", "InteractiveBrokers@prospectusdocs.com"]
 {
     fileinto "Interactive Brokers";
+}
+
+if allof (address :is "from" "no-reply@syafahadyan.com", header :contains "from" "CronDaemon")
+{
+    fileinto "CronDaemon";
 }
 
 
