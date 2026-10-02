@@ -307,9 +307,14 @@ if address :domain :matches "from" ["supabase.com", "*.supabase.com"]
     fileinto "Supabase";
 }
 
-if address :domain :matches "from" ["anthropic.com", "*.anthropic.com"]
+if address :domain :matches "from" ["anthropic.com", "*.anthropic.com", "claude.com", "*.claude.com"]
 {
     fileinto "Anthropic";
+}
+
+if address :domain :matches "from" ["claude.com", "*.claude.com"]
+{
+    fileinto "Claude";
 }
 
 if address :domain :matches "from" ["roblox.com", "*.roblox.com"]
@@ -435,6 +440,26 @@ if address :domain :matches "from" ["mailtrap.io", "*.mailtrap.io"]
 if address :domain :matches "from" ["gog.com", "*.gog.com"]
 {
     fileinto "GOG";
+}
+
+if address :domain :matches "from" ["raznar.id", "*.raznar.id"]
+{
+    fileinto "Raznar";
+}
+
+if address :domain :matches "from" ["modrinth.com", "*.modrinth.com"]
+{
+    fileinto "Modrinth";
+}
+
+if address :domain :matches "from" ["namemc.com", "*.namemc.com"]
+{
+    fileinto "NameMC";
+}
+
+if address :domain :matches "from" ["datadoghq.com", "*.datadoghq.com"]
+{
+    fileinto "Datadog";
 }
 
 
