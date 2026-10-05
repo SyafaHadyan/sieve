@@ -462,6 +462,16 @@ if address :domain :matches "from" ["datadoghq.com", "*.datadoghq.com"]
     fileinto "Datadog";
 }
 
+if address :domain :matches "from" ["modal.com", "*.modal.com"]
+{
+    fileinto "Modal";
+}
+
+if address :domain :matches "from" ["oraclecloud.com", "*.oraclecloud.com"]
+{
+    fileinto "Oracle Cloud";
+}
+
 
 ## Special Cases
 if anyof (address :domain :matches "from" ["amazonaws.com", "*.amazonaws.com", "aws.com", "*.aws.com", "signin.aws", "*signin.aws"], address :is "from" "aws-marketing-email-replies@amazon.com", address :is "from" "account-update-no-reply@signin.aws", address :is "from" "no-reply-aws@amazon.com")
